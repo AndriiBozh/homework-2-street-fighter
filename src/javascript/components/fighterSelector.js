@@ -21,6 +21,13 @@ const fighterDetailsMap = new Map();
 
 export async function getFighterInfo(fighterId) {
   // get fighter info from fighterDetailsMap or from service and write it to fighterDetailsMap
+  const fighterInfo = await fighterService.getFighterDetails(fighterId);
+  // const { id, name, health, attack, defense, source } = fighterInfo;
+  for (const property in fighterInfo) {
+    fighterDetailsMap.set(property, fighterInfo[property]);
+  }
+  // console.log(fighterDetailsMap);
+  return fighterDetailsMap;
 }
 
 function renderSelectedFighters(selectedFighters) {
@@ -41,12 +48,12 @@ function createVersusBlock(selectedFighters) {
   const image = createElement({
     tagName: 'img',
     className: 'preview-container___versus-img',
-    attributes: { src: versusImg },
+    attributes: { src: versusImg }
   });
   const disabledBtn = canStartFight ? '' : 'disabled';
   const fightBtn = createElement({
     tagName: 'button',
-    className: `preview-container___fight-btn ${disabledBtn}`,
+    className: `preview-container___fight-btn ${disabledBtn}`
   });
 
   fightBtn.addEventListener('click', onClick, false);
