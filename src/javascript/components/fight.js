@@ -29,3 +29,9 @@ export function getBlockPower(fighter) {
   const blockPower = defense * dodgeChance;
   return blockPower;
 }
+
+export function healthBarIndicatorDamage(position, damage) {
+  const healthBarIndicator = document.getElementById(`${position}-fighter-indicator`);
+  const healthBarWidth = 100 - damage;
+  healthBarIndicator.style.width = `${healthBarWidth}%`;
+}
