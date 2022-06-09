@@ -12,7 +12,7 @@ export function createFighterPreview(fighter, position) {
   const { _id, name, health, attack, defense, source } = Object.fromEntries(fighter);
 
   const fighterObj = { _id, name, health, attack, defense, source };
-  console.log('fighter: ' + JSON.stringify(fighterObj));
+
   const fighterImg = createFighterImage(fighterObj);
   const fighterName = createName(name);
   fighterElement.appendChild(fighterName);
@@ -41,15 +41,4 @@ function createName(name) {
   nameElement.innerText = name;
 
   return nameElement;
-}
-
-function createImage(source) {
-  const attributes = { src: source };
-  const imgElement = createElement({
-    tagName: 'img',
-    className: 'fighter-image',
-    attributes
-  });
-
-  return imgElement;
 }
