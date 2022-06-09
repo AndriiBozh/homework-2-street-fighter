@@ -49,7 +49,7 @@ export function createFighterImage(fighter) {
 }
 
 function createFighterCharacteristics(tagname, featureName, featureValue) {
-  const fighterElement = createElement({ tagName: tagname });
+  const fighterElement = createElement({ tagName: tagname, className: 'feature' });
   const fighterValue = createElement({ tagName: 'span', className: featureName });
   fighterValue.innerText = `${featureValue}`;
   fighterElement.innerText = `${featureName}: `;
