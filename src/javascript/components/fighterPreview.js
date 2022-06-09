@@ -20,7 +20,8 @@ export function createFighterPreview(fighter, position) {
   const fighterDefense = createFighterCharacteristics('span', 'defense', defense);
   const fighterData = [fighterName, fighterHealth, fighterAttack, fighterDefense];
 
-  const fighterCharasteristicsContainer = createElement({ tagName: 'div', className: 'details' });
+  const fighterCharasteristicsContainer = createElement({ tagName: 'div', className: 'details' }); //container for span elements
+
   fighterData.forEach((el) => {
     fighterCharasteristicsContainer.appendChild(el);
   });
@@ -48,8 +49,12 @@ export function createFighterImage(fighter) {
 }
 
 function createFighterCharacteristics(tagname, featureName, featureValue) {
-  const fighterElement = createElement({ tagName: tagname, className: featureName });
-  fighterElement.innerText = `${featureName}: ${featureValue}`;
+  const fighterElement = createElement({ tagName: tagname });
+  const fighterValue = createElement({ tagName: 'span', className: featureName });
+  fighterValue.innerText = `${featureValue}`;
+  fighterElement.innerText = `${featureName}: `;
+
+  fighterElement.appendChild(fighterValue);
 
   return fighterElement;
 }
