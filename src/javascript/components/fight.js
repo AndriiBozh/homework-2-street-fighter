@@ -34,4 +34,5 @@ export function healthBarIndicatorDamage(position, damage) {
   const healthBarIndicator = document.getElementById(`${position}-fighter-indicator`);
   const healthBarWidth = 100 - damage;
   healthBarIndicator.style.width = `${healthBarWidth}%`;
+  return healthBarWidth;
 }
