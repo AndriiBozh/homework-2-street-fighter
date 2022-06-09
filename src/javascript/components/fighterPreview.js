@@ -18,13 +18,16 @@ export function createFighterPreview(fighter, position) {
   const fighterHealth = createFighterCharacteristics('span', 'health', health);
   const fighterAttack = createFighterCharacteristics('span', 'attack', attack);
   const fighterDefense = createFighterCharacteristics('span', 'defense', defense);
-  const fighterData = [fighterImg, fighterName, fighterHealth, fighterAttack, fighterDefense];
+  const fighterData = [fighterName, fighterHealth, fighterAttack, fighterDefense];
 
+  const fighterCharasteristicsContainer = createElement({ tagName: 'div', className: 'details' });
   fighterData.forEach((el) => {
-    fighterElement.appendChild(el);
+    fighterCharasteristicsContainer.appendChild(el);
   });
-  // fighterElement.appendChild(fighterName);
-  // fighterElement.appendChild(fighterImg);
+
+  fighterElement.appendChild(fighterImg);
+  fighterElement.appendChild(fighterCharasteristicsContainer);
+
   return fighterElement;
 }
 
