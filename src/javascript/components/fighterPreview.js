@@ -1,4 +1,5 @@
 import { createElement } from '../helpers/domHelper';
+import { getFighterInfo } from './fighterSelector';
 
 export function createFighterPreview(fighter, position) {
   const positionClassName = position === 'right' ? 'fighter-preview___right' : 'fighter-preview___left';
@@ -9,6 +10,7 @@ export function createFighterPreview(fighter, position) {
   });
 
   // todo: show fighter info (image, name, health, etc.)
+
   const { _id, name, health, attack, defense, source } = Object.fromEntries(fighter);
 
   const fighterObj = { _id, name, health, attack, defense, source };
@@ -48,6 +50,12 @@ export function createFighterImage(fighter) {
   return imgElement;
 }
 
+/* create the following dom construction (element inside another element). 
+In our case it will be: 
+<span class="feature">health: 
+  <span class="health">4</span>
+</span>
+*/
 function createFighterCharacteristics(tagname, featureName, featureValue) {
   const fighterElement = createElement({ tagName: tagname, className: 'feature' });
   const fighterValue = createElement({ tagName: 'span', className: featureName });
