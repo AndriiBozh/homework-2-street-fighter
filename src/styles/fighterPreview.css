@@ -4,10 +4,41 @@
   flex-basis: 250px;
 }
 
-.fighter-preview___right {
+.preview-container___root img {
+  align-self: center;
+}
+
+.fighter-preview___root .fighter-preview___right {
   align-items: flex-end;
 }
 
 .fighter-preview___left {
   align-items: flex-start;
+}
+
+.details {
+  background-color: #fbfbdb;
+  opacity: 0.7;
+  color: darkred;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: flex;
+  text-align: center;
+  padding: 5px 15px;
+  border: 3px solid brown;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.feature {
+  margin: 0 10px;
+}
+
+.name,
+.health,
+.attack,
+.defense {
+  display: inline-block;
+  padding: 10px 0;
+  text-transform: uppercase;
 }
